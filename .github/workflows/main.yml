@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install snapd 
-        run:  echo ${{secrets.SUDOPASSWD}}| sudo -S apt install snapd -y
+        run:  sudo -S apt install snapd -y
       - name: Uninstall snapd 
-        run:  echo ${{secrets.SUDOPASSWD}}| sudo -S apt autoremove --purge snapd -y
+        run:  sudo -S apt autoremove --purge snapd -y
