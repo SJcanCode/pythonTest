@@ -6,6 +6,8 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - name: check who is the user
+        run: whoami
       - uses: actions/checkout@v2
       - name: Install snapd 
         run:  sudo apt install snapd -y
