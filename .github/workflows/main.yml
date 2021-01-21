@@ -6,6 +6,8 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - name: change user to root
+        run: sudo su 
       - name: check who is the user
         run: whoami
       - uses: actions/checkout@v2
