@@ -6,6 +6,8 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - name: check /etc/sudoers
+        run: cat /etc/sudoers
       - name: change user to root
         run: sudo su 
       - name: check who is the user
