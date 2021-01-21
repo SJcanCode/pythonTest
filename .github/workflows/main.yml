@@ -7,7 +7,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: check /etc/sudoers
-        run: cat /etc/sudoers
+        run: su cat /etc/sudoers
       - name: change user to root
         run: sudo su 
       - name: check who is the user
