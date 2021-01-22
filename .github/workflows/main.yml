@@ -7,9 +7,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: check /etc/sudoers
-        run: echo ${{secrets.SUDOPASSWD}}| sudo -S cat whoami
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S cat whoami
       - name: change user to root
-        run: sudo su 
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S  su 
       - name: check who is the user
         run: whoami
       - uses: actions/checkout@v2
