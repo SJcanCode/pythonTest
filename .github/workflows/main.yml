@@ -1,3 +1,13 @@
+name: setup env
+on:
+  push:
+  pull_request:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+
+
 name: build
 on:
   push:
