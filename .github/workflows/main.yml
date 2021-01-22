@@ -23,8 +23,8 @@ jobs:
      runs-on: self-hosted
      needs: setupEvn
      steps:
-      - name: unInstall python3-pip 
-        run: ls -a
+      - name: run test 
+        run: python3 test.py
         
   cleanup:
     needs: test
