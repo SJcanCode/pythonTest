@@ -12,8 +12,6 @@ jobs:
       - name: check who is the user
         run: whoami
       - uses: actions/checkout@v2
-      - name: Install snapd 
-        run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install snapd -y
       - name: Install software-properties-common
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install -y software-properties-common
       - name: Install python3
@@ -38,7 +36,6 @@ jobs:
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get autoremove --purge python3 -y   
       - name: Uninstall software-properties-common
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get autoremove --purge software-properties-common -y
-      - name: Uninstall snapd 
-        run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt autoremove --purge snapd -y
+
 
  
