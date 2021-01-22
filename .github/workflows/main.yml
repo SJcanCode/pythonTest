@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
 jobs:
-  setup:
+  setupEvn:
     runs-on: self-hosted
     steps:
       - name: check /etc/sudoers
@@ -20,6 +20,18 @@ jobs:
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install -y python3
       - name: Install python3-pip -y
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install python3-pip -y     
+ 
+  test:
+     runs-on: self-hosted
+     needs: setupEvn
+     steps:
+      - name: unInstall python3-pip 
+        run: ls -a
+        
+  cleanup:
+    needs: test
+    runs-on: self-hosted
+    steps:
       - name: unInstall python3-pip 
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get autoremove --purge python3-pip -y 
       - name: uninstall python3
@@ -28,3 +40,5 @@ jobs:
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get autoremove --purge software-properties-common -y
       - name: Uninstall snapd 
         run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt autoremove --purge snapd -y
+
+ 
