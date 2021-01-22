@@ -12,6 +12,6 @@ jobs:
         run: whoami
       - uses: actions/checkout@v2
       - name: Install snapd 
-        run:  sudo apt install snapd -y
+        run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt install snapd -y
       - name: Uninstall snapd 
-        run:  sudo apt autoremove --purge snapd -y
+        run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt autoremove --purge snapd -y
