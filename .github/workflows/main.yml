@@ -20,10 +20,10 @@ jobs:
       - name: Install python3-pip -y
         run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install python3-pip -y     
       - name: unInstall python3-pip 
-        run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get --purge python3-pip -y 
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get autoremove --purge python3-pip -y 
       - name: uninstall python3
-        run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get --purge python3 -y   
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get autoremove --purge python3 -y   
       - name: Uninstall software-properties-common
-        run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get --purge software-properties-common -y
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get autoremove --purge software-properties-common -y
       - name: Uninstall snapd 
         run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt autoremove --purge snapd -y
