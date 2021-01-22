@@ -12,6 +12,18 @@ jobs:
         run: whoami
       - uses: actions/checkout@v2
       - name: Install snapd 
-        run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt install snapd -y
+        run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install snapd -y
+      - name: Install software-properties-common
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install -y software-properties-common
+      - name: Install python3
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install -y python3
+      - name: Install python3-pip -y
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get install python3-pip -y     
+      - name: unInstall python3-pip 
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get --purge python3-pip -y 
+      - name: uninstall python3
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S sudo apt-get --purge python3 -y   
+      - name: Uninstall software-properties-common
+        run: echo ${{secrets.SUDOPASSWD}} | sudo -S apt-get --purge software-properties-common -y
       - name: Uninstall snapd 
         run:  echo ${{secrets.SUDOPASSWD}} | sudo -S apt autoremove --purge snapd -y
