@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
 jobs:
-  build:
+  setup:
     runs-on: self-hosted
     steps:
       - name: check /etc/sudoers
