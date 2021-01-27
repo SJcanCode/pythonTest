@@ -39,7 +39,7 @@ jobs:
         run: python3 test.py
         
   cleanup:
-    needs: test
+    needs: [test , test2, test3 ] 
     runs-on: self-hosted
     steps:
       - name: unInstall python3-pip 
